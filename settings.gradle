@@ -13,7 +13,11 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Ozon"
+
 include ':app'
-include ':feature'
+
+include ':list'
+include ':details'
+
 include ':core'
 include ':utils'
