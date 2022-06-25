@@ -61,5 +61,8 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$dagger"
 
     implementation project(':list')
-    implementation project(path: ':details')
+    implementation project(':details')
+    implementation project(":utils")
+    implementation project(":core")
+    implementation project(":core-ui")
 }

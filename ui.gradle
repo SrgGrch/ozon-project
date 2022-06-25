@@ -9,6 +9,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
     implementation "com.github.kirich1409:viewbindingpropertydelegate:$viewbindingpropertydelegate"
 
+    implementation "com.github.bumptech.glide:glide:$glide"
+
     implementation "androidx.navigation:navigation-fragment-ktx:$nav"
     implementation "androidx.navigation:navigation-ui-ktx:$nav"
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout"
 }

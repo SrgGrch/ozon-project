@@ -20,4 +20,5 @@ include ':list'
 include ':details'
 
 include ':core'
+include ':core-ui'
 include ':utils'

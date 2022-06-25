@@ -4,8 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/drawable/ic_favorite_20.xml" value="0.242" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/drawable/ic_favorite_border_24.xml" value="0.242" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/drawable/ripple_fav_button.xml" value="0.241" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/drawable/ripple_greeen.xml" value="0.2985" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/layout/layout_fav_button.xml" value="1.0" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/details/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/feature/src/main/res/layout/fragment_main.xml" value="0.1" />
-        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/list/src/main/res/layout/fragment_main.xml" value="0.16945288753799392" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/list/src/main/res/drawable/ripple_fav_button.xml" value="0.2985" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/list/src/main/res/layout/fragment_main.xml" value="0.33" />
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/list/src/main/res/layout/item_product_preview.xml" value="0.24945135332845647" />
       </map>
     </option>
   </component>

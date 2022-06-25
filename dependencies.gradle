@@ -11,4 +11,7 @@ ext {
     nav = '2.4.2'
     worker = '2.7.1'
     retrofit = '2.9.0'
+    adapterdelegates4 = '4.3.2'
+    glide = '4.13.0'
+    swiperefreshlayout = '1.1.0'
 }

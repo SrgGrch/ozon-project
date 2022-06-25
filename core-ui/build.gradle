@@ -1,4 +1,5 @@
 apply from: "../module.gradle"
+apply from: "../ui.gradle"
 
 dependencies {
     implementation "androidx.core:core-ktx:$coreKtx"
