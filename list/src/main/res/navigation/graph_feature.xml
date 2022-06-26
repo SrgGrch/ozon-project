@@ -9,5 +9,5 @@
         android:id="@+id/listFragment"
         android:name="ru.ozon.list.ui.list.ListFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_list" />
 </navigation>

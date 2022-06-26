@@ -2,24 +2,28 @@ package ru.ozon.list.ui.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.srggrch.core.data.repos.ProductRepository
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.ProductPreview
+import com.srggrch.core.domain.cases.FavoriteUseCase
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
+import ru.ozon.list.ui.domain.GetProductPreviewUseCase
 import ru.ozon.utils.data.Resource
+import ru.ozon.utils.ui.MoneyFormatter
 import javax.inject.Inject
 
 class ListViewModel @Inject constructor(
-    private val repository: ProductRepository
+    private val getProductPreviewUseCase: GetProductPreviewUseCase,
+    private val favoriteUseCase: FavoriteUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow<State>(State.Loading(emptyList()))
-    val state: Flow<State> = _state.asStateFlow()
+    internal val state: Flow<State> = _state.asStateFlow()
 
     init {
         fetchData()
     }
 
     private fun fetchData() {
-        repository.getProducts()
+        getProductPreviewUseCase.execute()
             .onEach {
                 val res = when (it) {
                     is Resource.Error -> State.Error(it.data?.toItem() ?: emptyList())
@@ -31,15 +35,19 @@ class ListViewModel @Inject constructor(
             }.launchIn(viewModelScope)
     }
 
-    fun addToFavorite(item: ProductPreviewItem) {
-
+    internal fun addToFavorite(item: ProductPreviewItem) {
+        viewModelScope.launch {
+            favoriteUseCase.addToFavorite(item.guid)
+        }
     }
 
-    fun removeFromFavorite(item: ProductPreviewItem) {
-
+    internal fun removeFromFavorite(item: ProductPreviewItem) {
+        viewModelScope.launch {
+            favoriteUseCase.removeFromFavorite(item.guid)
+        }
     }
 
-    sealed class State {
+    internal sealed class State {
         abstract val products: List<ProductPreviewItem>
 
         data class Loading(override val products: List<ProductPreviewItem>) : State()
@@ -52,7 +60,7 @@ class ListViewModel @Inject constructor(
             it.guid,
             it.image,
             it.name,
-            it.price,
+            MoneyFormatter.format(it.price),
             it.rating,
             it.isFavorite,
             it.isInCart

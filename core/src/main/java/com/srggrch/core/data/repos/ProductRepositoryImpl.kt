@@ -3,8 +3,8 @@ package com.srggrch.core.data.repos
 import com.srggrch.core.data.services.ProductService
 import com.srggrch.core.data.storages.ProductDetailsStorage
 import com.srggrch.core.data.storages.ProductPreviewStorage
-import com.srggrch.core.domain.models.Product
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.Product
+import com.srggrch.core.data.models.ProductPreview
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

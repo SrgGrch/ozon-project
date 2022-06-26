@@ -1,7 +1,6 @@
 package com.srggrch.core.data.storages
 
-import com.srggrch.core.domain.models.Product
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.ProductPreview
 
 interface ProductPreviewStorage {
     suspend fun saveProducts(product: List<ProductPreview>): List<ProductPreview>

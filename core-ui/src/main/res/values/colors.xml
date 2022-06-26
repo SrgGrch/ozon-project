@@ -10,8 +10,9 @@
 
     <color name="text_black">#242629</color>
     <color name="red">#FF1313</color>
-    <color name="grey_ripple">#8E8E8E</color>
-    <color name="grey">#B5B5B5</color>
+    <color name="red_ripple">#931010</color>
+    <color name="grey_ripple">#908E8E8E</color>
+    <color name="grey">#39929292</color>
 
     <color name="green">#1FA500</color>
     <color name="green_ripple">#177C00</color>

@@ -3,7 +3,7 @@ package ru.ozon.list.ui.list
 import ru.ozon.utils.ui.recycler.AdapterItem
 import java.util.*
 
-data class ProductPreviewItem(
+internal data class ProductPreviewItem(
     val guid: UUID,
     val image: String,
     val name: String,

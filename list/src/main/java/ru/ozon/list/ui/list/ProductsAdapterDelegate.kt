@@ -7,7 +7,7 @@ import ru.ozon.list.databinding.ItemProductPreviewBinding
 import ru.ozon.utils.ui.recycler.AdapterItem
 import com.srggrch.coreui.R as CoreR
 
-object ProductsAdapterDelegate {
+internal object ProductsAdapterDelegate {
     operator fun invoke(
         onAddToCardClicked: (item: ProductPreviewItem) -> Unit,
         onFavoriteClicked: (item: ProductPreviewItem) -> Unit,

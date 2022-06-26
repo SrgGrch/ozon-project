@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">utils</string>
+    <string name="app_name" translatable="false">utils</string>
+    <string name="rubble_curenccy" translatable="false">₽</string>
 </resources>

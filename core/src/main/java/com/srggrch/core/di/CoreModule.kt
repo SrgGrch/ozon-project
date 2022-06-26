@@ -8,7 +8,8 @@ import dagger.Module
         WorkerModule::class,
         StorageModule::class,
         RepoModule::class,
-        ServiceModule::class
+        ServiceModule::class,
+        UseCaseModule::class
     ]
 )
 class CoreModule

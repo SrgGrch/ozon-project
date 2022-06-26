@@ -2,8 +2,8 @@ package com.srggrch.core.data.services
 
 import com.srggrch.core.data.api.Api
 import com.srggrch.core.data.api.runRequest
-import com.srggrch.core.domain.models.Product
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.Product
+import com.srggrch.core.data.models.ProductPreview
 import ru.ozon.utils.data.Resource
 import javax.inject.Inject
 

@@ -1,6 +1,6 @@
 package com.srggrch.core.data.storages
 
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.ProductPreview
 import javax.inject.Inject
 
 internal class ProductPreviewStorageImpl @Inject constructor() : ProductPreviewStorage {

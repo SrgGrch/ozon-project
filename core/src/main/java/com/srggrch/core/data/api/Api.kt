@@ -1,7 +1,7 @@
 package com.srggrch.core.data.api
 
-import com.srggrch.core.domain.models.Product
-import com.srggrch.core.domain.models.ProductPreview
+import com.srggrch.core.data.models.Product
+import com.srggrch.core.data.models.ProductPreview
 import retrofit2.http.GET
 
 internal interface Api {
