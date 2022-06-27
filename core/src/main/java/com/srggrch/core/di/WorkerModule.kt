@@ -1,12 +1,17 @@
 package com.srggrch.core.di
 
+import android.content.Context
+import androidx.work.Configuration
 import androidx.work.CoroutineWorker
-import androidx.work.Worker
-import com.srggrch.core.workers.LoadListWorker
+import androidx.work.WorkManager
+import com.srggrch.core.workers.LoadDetailsWorker
+import com.srggrch.core.workers.LoadPreviewsWorker
 import com.srggrch.core.workers.factory.ChildWorkerFactory
+import com.srggrch.core.workers.factory.MyWorkerFactory
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
+import dagger.Provides
 import dagger.multibindings.IntoMap
 import kotlin.reflect.KClass
 
@@ -19,6 +24,16 @@ abstract class WorkerModule {
 
     @Binds
     @IntoMap
-    @WorkerKey(LoadListWorker::class)
-    internal abstract fun bindMyWorkerFactory(worker: LoadListWorker.Factory): ChildWorkerFactory
+    @WorkerKey(LoadPreviewsWorker::class)
+    internal abstract fun bindLoadPreviewsWorker(worker: LoadPreviewsWorker.Factory): ChildWorkerFactory
+
+    @Binds
+    @IntoMap
+    @WorkerKey(LoadDetailsWorker::class)
+    internal abstract fun bindLoadDetailsWorker(worker: LoadDetailsWorker.Factory): ChildWorkerFactory
+
+    companion object {
+        @Provides
+        internal fun provideWorkManager(context: Context) = WorkManager.getInstance(context)
+    }
 }

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="GreenRatingBarSmall" parent="Theme.Ozon">
-        <item name="android:progressDrawable">@drawable/rating_bar</item>
-        <item name="android:indeterminateDrawable">@drawable/rating_bar</item>
         <item name="srb_starHeight">20dp</item>
         <item name="srb_starWidth">20dp</item>
         <item name="srb_starPadding">0dp</item>

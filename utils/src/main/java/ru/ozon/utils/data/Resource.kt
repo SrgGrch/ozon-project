@@ -33,9 +33,9 @@ sealed class Resource<T> {
         fun <T> newError(message: String? = null): Resource<T> = newError(null, message)
     }
 
-    fun onLoading(): Resource<T> = Loading(data)
-    fun onSuccess(newData: T): Resource<T> = Success(newData)
-    fun onError(errorDesc: ErrorDesc): Resource<T> = Error(data, errorDesc)
+    fun loading(): Resource<T> = Loading(data)
+    fun success(newData: T): Resource<T> = Success(newData)
+    fun error(errorDesc: ErrorDesc): Resource<T> = Error(data, errorDesc)
 }
 
 fun <T, R> Resource<T>.mapData(transform: (T) -> R): Resource<R> {

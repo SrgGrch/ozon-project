@@ -16,4 +16,5 @@ ext {
     swiperefreshlayout = '1.1.0'
     okhttp = '3.14.9'
     SimpleRatingBar = '1.5.1'
+    room = '2.4.2'
 }

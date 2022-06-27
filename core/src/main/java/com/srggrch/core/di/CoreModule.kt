@@ -9,6 +9,7 @@ import dagger.Module
         StorageModule::class,
         RepoModule::class,
         ServiceModule::class,
+        DbModule::class,
         UseCaseModule::class
     ]
 )

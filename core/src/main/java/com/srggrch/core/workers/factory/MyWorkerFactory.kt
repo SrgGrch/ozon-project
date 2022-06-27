@@ -1,19 +1,25 @@
 package com.srggrch.core.workers.factory
 
 import android.content.Context
-import androidx.work.*
+import androidx.work.CoroutineWorker
+import androidx.work.ListenableWorker
+import androidx.work.WorkerFactory
+import androidx.work.WorkerParameters
 import javax.inject.Inject
-import javax.inject.Provider
+import kotlin.reflect.KClass
 
 class MyWorkerFactory @Inject constructor(
-    private val workers: Map<Class<out CoroutineWorker>, @JvmSuppressWildcards Provider<Worker>>
+    private val workers: Map<Class<out CoroutineWorker>, @JvmSuppressWildcards ChildWorkerFactory>
 ) : WorkerFactory() {
     override fun createWorker(
         appContext: Context,
         workerClassName: String,
         workerParameters: WorkerParameters
     ): ListenableWorker {
-        return workers.entries.find { it.key.simpleName == workerClassName }?.value?.get()
+        return workers.entries
+            .find { it.key.name == workerClassName }
+            ?.value
+            ?.create(workerParameters)
             ?: throw NullPointerException("Can not find $workerClassName")
     }
 }

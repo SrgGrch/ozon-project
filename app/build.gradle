@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.srggrch.ozon"
+        applicationId "ru.ozon.app"
         minSdk 28
         targetSdk 32
         versionCode 1
@@ -59,6 +59,8 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
     kapt "com.google.dagger:dagger-compiler:$dagger"
+
+    implementation "androidx.work:work-runtime-ktx:$worker"
 
     implementation project(':list')
     implementation project(':details')

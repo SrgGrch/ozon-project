@@ -2,35 +2,31 @@ package com.srggrch.core.workers
 
 import android.content.Context
 import androidx.work.CoroutineWorker
-import androidx.work.Data
-import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.srggrch.core.data.api.Api
-import com.srggrch.core.data.services.ProductService
+import com.srggrch.core.data.repos.ProductDetailsRepository
+import com.srggrch.core.data.repos.ProductPreviewRepository
 import com.srggrch.core.workers.factory.ChildWorkerFactory
+import ru.ozon.utils.data.Resource
 import javax.inject.Inject
 
-class LoadListWorker(
+class LoadPreviewsWorker(
     appContext: Context,
     workerParams: WorkerParameters,
-    private val productService: ProductService
+    private val productDetailsRepository: ProductDetailsRepository
 ) : CoroutineWorker(appContext, workerParams) {
-
-    companion object {
-        val RESULT = "${LoadListWorker::class.simpleName}.result"
-    }
-
     override suspend fun doWork(): Result {
-        productService.getProducts()
-        return Result.success()
+        return when (productDetailsRepository.update()) {
+            is Resource.Success -> Result.success()
+            else -> Result.failure()
+        }
     }
 
     class Factory @Inject constructor(
         private val context: Context,
-        private val productService: ProductService
+        private val productDetailsRepository: ProductDetailsRepository
     ) : ChildWorkerFactory {
         override fun create(params: WorkerParameters): CoroutineWorker {
-            return LoadListWorker(context, params, productService)
+            return LoadPreviewsWorker(context, params, productDetailsRepository)
         }
     }
 }

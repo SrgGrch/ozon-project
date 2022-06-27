@@ -93,7 +93,6 @@ class ListUi @Inject constructor(
         ValueAnimator.ofFloat(valueFrom, valueTo).setDuration(250).apply {
             startDelay = 0
             addUpdateListener {
-                println(it.animatedValue.toString())
                 viewBinding.toolbar.elevation = it.animatedValue as Float
             }
             start()

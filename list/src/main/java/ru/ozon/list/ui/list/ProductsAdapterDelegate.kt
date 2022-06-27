@@ -44,7 +44,6 @@ internal object ProductsAdapterDelegate {
                     .load(item.image)
                     .into(image)
             }
-
         }
     }
 }

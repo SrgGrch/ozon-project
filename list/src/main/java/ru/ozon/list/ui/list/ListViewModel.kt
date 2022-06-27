@@ -3,7 +3,6 @@ package ru.ozon.list.ui.list
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srggrch.core.data.models.ProductPreview
-import com.srggrch.core.data.repos.ProductRepository
 import com.srggrch.core.domain.cases.FavoriteUseCase
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
