@@ -38,6 +38,8 @@ internal object ProductsAdapterDelegate {
                     }
                 )
 
+                rating.rating = item.rating.toFloat()
+
                 glide
                     .load(item.image)
                     .into(image)

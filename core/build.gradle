@@ -5,6 +5,7 @@ dependencies {
     api "com.squareup.retrofit2:converter-gson:$retrofit"
 
     implementation "androidx.work:work-runtime-ktx:$worker"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
     implementation project(":utils")
 }

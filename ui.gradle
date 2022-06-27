@@ -15,4 +15,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout"
+
+    implementation "com.github.ome450901:SimpleRatingBar:$SimpleRatingBar"
 }
