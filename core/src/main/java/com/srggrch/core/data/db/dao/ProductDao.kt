@@ -12,10 +12,10 @@ internal interface ProductDao {
     suspend fun getAllProducts(): List<ProductEntity>
 
     @Query("SELECT * FROM ProductEntity WHERE guid = :uuid")
-    suspend fun findProduct(uuid: UUID): ProductEntity
+    suspend fun findProduct(uuid: UUID): ProductEntity?
 
     @Query("SELECT * FROM ProductEntity")
-    fun getAllProductsFlow(): Flow<ProductEntity>
+    fun getAllProductsFlow(): Flow<List<ProductEntity>>
 
     @Query("UPDATE ProductEntity SET isFavorite = :isFavorite WHERE guid = :uuid")
     suspend fun setFavorite(uuid: UUID, isFavorite: Boolean)
@@ -26,6 +26,35 @@ internal interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(product: ProductEntity)
 
-    @Update(entity = ProductBaseEntity::class)
-    suspend fun updateBaseInfo(products: List<ProductBaseEntity>)
+    //    @Query(
+//        """
+//        UPDATE ProductEntity
+//        SET name         = :name,
+//        price            = :price,
+//        description      = :description,
+//        rating           = :rating,
+//        images           = :images,
+//        weight           = :weight,
+//        count            = :count,
+//        availableCount   = :availableCount,
+//        additionalParams = :additionalParams
+//        WHERE guid = :guid
+//    """
+//    )
+//    suspend fun updateBaseInfo(
+//        guid: UUID,
+//        name: String,
+//        price: String,
+//        description: String,
+//        rating: Double,
+//        images: List<String>,
+//        weight: Double?,
+//        count: Int?,
+//        availableCount: Int?,
+//        additionalParams: Map<String, String>
+//    )
+    @Update(entity = ProductEntity::class)
+    suspend fun updateBaseInfo(
+        products: List<ProductBaseEntity>
+    )
 }

@@ -1,6 +1,6 @@
 package ru.ozon.list.ui.list
 
-import ru.ozon.utils.ui.recycler.AdapterItem
+import ru.ozon.coreui.recycler.AdapterItem
 import java.util.*
 
 internal data class ProductPreviewItem(

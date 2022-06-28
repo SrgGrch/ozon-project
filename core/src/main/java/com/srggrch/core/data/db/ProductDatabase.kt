@@ -6,13 +6,12 @@ import androidx.room.TypeConverters
 import com.srggrch.core.data.db.converters.StringListConverter
 import com.srggrch.core.data.db.converters.StringMapConverter
 import com.srggrch.core.data.db.dao.ProductDao
-import com.srggrch.core.data.db.entities.ProductBaseEntity
+import com.srggrch.core.data.db.dao.ProductPreviewDao
 import com.srggrch.core.data.db.entities.ProductEntity
 
 @Database(
     entities = [
-        ProductEntity::class,
-        ProductBaseEntity::class
+        ProductEntity::class
     ],
     version = 1
 )
@@ -22,4 +21,5 @@ import com.srggrch.core.data.db.entities.ProductEntity
 )
 internal abstract class ProductDatabase : RoomDatabase() {
     abstract fun getProductDao(): ProductDao
+    abstract fun getProductPreviewDao(): ProductPreviewDao
 }

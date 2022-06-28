@@ -3,7 +3,7 @@ package com.srggrch.core.workers
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.srggrch.core.data.repos.ProductPreviewRepository
+import com.srggrch.core.data.repos.ProductDetailsRepository
 import com.srggrch.core.workers.factory.ChildWorkerFactory
 import ru.ozon.utils.data.Resource
 import javax.inject.Inject
@@ -11,10 +11,10 @@ import javax.inject.Inject
 class LoadDetailsWorker(
     appContext: Context,
     workerParams: WorkerParameters,
-    private val productPreviewRepository: ProductPreviewRepository
+    private val productDetailsRepository: ProductDetailsRepository
 ) : CoroutineWorker(appContext, workerParams) {
     override suspend fun doWork(): Result {
-        return when (productPreviewRepository.update()) {
+        return when (productDetailsRepository.update()) {
             is Resource.Success -> Result.success()
             else -> Result.failure()
         }
@@ -22,10 +22,10 @@ class LoadDetailsWorker(
 
     class Factory @Inject constructor(
         private val context: Context,
-        private val productPreviewRepository: ProductPreviewRepository
+        private val productDetailsRepository: ProductDetailsRepository
     ) : ChildWorkerFactory {
         override fun create(params: WorkerParameters): CoroutineWorker {
-            return LoadDetailsWorker(context, params, productPreviewRepository)
+            return LoadDetailsWorker(context, params, productDetailsRepository)
         }
     }
 }

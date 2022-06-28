@@ -1,9 +1,13 @@
-package ru.ozon.utils.ui
+package ru.ozon.coreui
 
 import android.view.View
+import androidx.annotation.MainThread
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.navigation.NavArgs
+import androidx.navigation.NavArgsLazy
+import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.CoroutineScope
 import androidx.fragment.app.Fragment as AndroidXFragment
 
@@ -22,6 +26,9 @@ abstract class FragmentLifecycleObserver<Fragment : AndroidXFragment>(
     init {
         initialize()
     }
+
+    @MainThread
+    protected inline fun <reified Args : NavArgs> navArgs(): NavArgsLazy<Args> = fragment.navArgs()
 
     private fun initialize() {
         fragment.lifecycle.addObserver(this)

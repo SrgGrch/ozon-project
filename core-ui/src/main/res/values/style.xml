@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="GreenRatingBarSmall" parent="Theme.Ozon">
+    <style name="Theme.Ozon.GreenRatingBarSmall" parent="Theme.Ozon">
         <item name="srb_starHeight">20dp</item>
         <item name="srb_starWidth">20dp</item>
         <item name="srb_starPadding">0dp</item>
@@ -9,5 +9,24 @@
         <item name="srb_isIndicator">true</item>
         <item name="srb_stepSize">0.1</item>
         <item name="android:numStars">5</item>
+    </style>
+
+    <style name="Theme.Ozon.GreenRatingBar" parent="Theme.Ozon.GreenRatingBarSmall">
+        <item name="srb_starHeight">24dp</item>
+        <item name="srb_starWidth">24dp</item>
+        <item name="srb_starPadding">0dp</item>
+        <item name="srb_drawableEmpty">@drawable/selector_rating_bar_empty</item>
+        <item name="srb_drawableFilled">@drawable/selector_rating_bar_filled</item>
+        <item name="srb_isIndicator">true</item>
+        <item name="srb_stepSize">0.1</item>
+        <item name="android:numStars">5</item>
+    </style>
+
+    <style name="Theme.Ozon.Toolbar" parent="Theme.Ozon">
+        <item name="android:src">@drawable/ic_arrow_back_24</item>
+        <item name="android:tint">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
     </style>
 </resources>

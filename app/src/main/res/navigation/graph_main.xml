@@ -6,4 +6,5 @@
     app:startDestination="@id/graph_feature">
 
     <include app:graph="@navigation/graph_feature" />
+    <include app:graph="@navigation/graph_details" />
 </navigation>

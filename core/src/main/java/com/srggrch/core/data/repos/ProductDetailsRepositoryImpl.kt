@@ -11,7 +11,6 @@ import kotlinx.coroutines.withContext
 import ru.ozon.utils.data.Resource
 import ru.ozon.utils.data.doOnSuccess
 import ru.ozon.utils.data.mapDataToUnit
-import ru.ozon.utils.data.mapError
 import java.util.*
 import javax.inject.Inject
 
@@ -29,36 +28,29 @@ class ProductDetailsRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getProductDetails(): Flow<Resource<List<Product>>> {
-        return flow {
-            val localData = productDetailsStorage.getAllProducts().takeIf { it.isNotEmpty() }
-            emit(
-                Resource.newLoading(
-                    localData
-                )
-            )
-
-            emit(
-                productService.getProductDetails()
-                    .doOnSuccess {
-                        productDetailsStorage.saveProducts(it)
-                    }
-                    .mapError {
-                        it.copy(data = localData)
-                    }
-            )
-        }.flowOn(Dispatchers.IO)
+    override suspend fun findProductDetails(uuid: UUID): Resource<Product> {
+        return productDetailsStorage.findProduct(uuid)?.let { Resource.newSuccess(it) }
+            ?: Resource.newError()
     }
 
-    override suspend fun findProductDetails(uuid: UUID): Flow<Resource<Product>> {
-        return withContext(Dispatchers.IO) {
-            TODO("Not yet implemented")
-        }
+
+    override fun findProductDetailsFlow(uuid: UUID): Flow<Resource<Product>> {
+        return flow {
+            emit(Resource.newSuccess(productDetailsStorage.findProduct(uuid)!!))
+
+            // todo load from server by id (currently now such api method)
+        }.flowOn(Dispatchers.IO)
     }
 
     override suspend fun productViewed(uuid: UUID) {
         withContext(Dispatchers.IO) {
-            TODO("Not yet implemented")
+            // TODO("Not yet implemented")
+        }
+    }
+
+    override suspend fun setFavorite(uuid: UUID, isFavorite: Boolean) {
+        withContext(Dispatchers.IO) {
+            productDetailsStorage.setFavorite(uuid, isFavorite)
         }
     }
 }

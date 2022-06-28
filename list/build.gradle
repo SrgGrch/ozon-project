@@ -3,6 +3,7 @@ apply from: "../ui.gradle"
 
 dependencies {
     implementation project(":core")
+    implementation project(":details")
     implementation project(':core-ui')
     implementation project(":utils")
 }

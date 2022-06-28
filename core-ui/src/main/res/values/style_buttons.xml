@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="FavButton" parent="Theme.Ozon">
+    <style name="Theme.Ozon.FavButton" parent="Theme.Ozon">
         <item name="android:layout_width">@dimen/fav_button_radius</item>
         <item name="android:layout_height">@dimen/fav_button_radius</item>
         <item name="android:background">@drawable/ripple_fav_button</item>
         <item name="elevation">4dp</item>
         <item name="android:tint">@color/red</item>
         <item name="android:src">@drawable/ic_favorite_border_20</item>
+    </style>
+
+    <style name="Theme.Ozon.BackButton" parent="Theme.Ozon">
+        <item name="android:src">@drawable/ic_arrow_back_24</item>
+        <item name="android:tint">@color/black</item>
+        <item name="android:background">@drawable/ripple_transparent</item>
     </style>
 </resources>

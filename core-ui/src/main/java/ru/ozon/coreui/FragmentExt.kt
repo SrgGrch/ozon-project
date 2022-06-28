@@ -1,4 +1,4 @@
-package ru.ozon.utils.ui
+package ru.ozon.coreui
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.coroutineScope

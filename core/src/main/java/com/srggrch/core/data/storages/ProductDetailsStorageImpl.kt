@@ -20,12 +20,14 @@ internal class ProductDetailsStorageImpl @Inject constructor(
 
     override suspend fun getAllProducts(): List<Product> {
         return productDao.getAllProducts().map { it.toDomainModel() }
-
     }
 
-    override suspend fun findProduct(uuid: UUID): Product {
-        return productDao.findProduct(uuid).toDomainModel()
+    override suspend fun findProduct(uuid: UUID): Product? {
+        return productDao.findProduct(uuid)?.toDomainModel()
+    }
 
+    override suspend fun setFavorite(uuid: UUID, isFavorite: Boolean) {
+        productDao.setFavorite(uuid, isFavorite)
     }
 
     private fun Product.toEntity() = ProductEntity(
@@ -47,7 +49,7 @@ internal class ProductDetailsStorageImpl @Inject constructor(
         guid,
         name,
         price,
-        description,
+        description.orEmpty(),
         rating,
         isFavorite,
         isInCart,

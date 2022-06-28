@@ -1,13 +1,11 @@
 package com.srggrch.core.di
 
 import android.content.Context
-import androidx.work.Configuration
 import androidx.work.CoroutineWorker
 import androidx.work.WorkManager
+import com.srggrch.core.workers.LoadPreviewWorker
 import com.srggrch.core.workers.LoadDetailsWorker
-import com.srggrch.core.workers.LoadPreviewsWorker
 import com.srggrch.core.workers.factory.ChildWorkerFactory
-import com.srggrch.core.workers.factory.MyWorkerFactory
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -24,13 +22,13 @@ abstract class WorkerModule {
 
     @Binds
     @IntoMap
-    @WorkerKey(LoadPreviewsWorker::class)
-    internal abstract fun bindLoadPreviewsWorker(worker: LoadPreviewsWorker.Factory): ChildWorkerFactory
+    @WorkerKey(LoadDetailsWorker::class)
+    internal abstract fun bindLoadDetailsWorker(worker: LoadDetailsWorker.Factory): ChildWorkerFactory
 
     @Binds
     @IntoMap
-    @WorkerKey(LoadDetailsWorker::class)
-    internal abstract fun bindLoadDetailsWorker(worker: LoadDetailsWorker.Factory): ChildWorkerFactory
+    @WorkerKey(LoadPreviewWorker::class)
+    internal abstract fun bindLoadPreviewWorker(worker: LoadPreviewWorker.Factory): ChildWorkerFactory
 
     companion object {
         @Provides

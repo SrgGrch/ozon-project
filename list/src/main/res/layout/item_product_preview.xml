@@ -27,7 +27,7 @@
 
         <ImageButton
             android:id="@+id/fav"
-            style="@style/FavButton"
+            style="@style/Theme.Ozon.FavButton"
             android:layout_margin="8dp"
             android:contentDescription="@string/contentDesc_favButton_add"
             app:layout_constraintEnd_toEndOf="@id/image"
@@ -45,7 +45,7 @@
             tools:text="Борщ по-домашнему" />
 
         <com.willy.ratingbar.ScaleRatingBar
-            style="@style/GreenRatingBarSmall"
+            style="@style/Theme.Ozon.GreenRatingBarSmall"
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

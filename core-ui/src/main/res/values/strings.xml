@@ -2,4 +2,5 @@
     <string name="app_name">coreui</string>
     <string name="contentDesc_favButton_add">Добавить в избранное</string>
     <string name="contentDesc_favButton_remove">Удалить из избранного</string>
+    <string name="contentDesc_back">Назад</string>
 </resources>

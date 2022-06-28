@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.srggrch.core.data.db.ProductDatabase
 import com.srggrch.core.data.db.dao.ProductDao
+import com.srggrch.core.data.db.dao.ProductPreviewDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,4 +21,7 @@ internal class DbModule {
 
     @Provides
     fun provideProductsDao(db: ProductDatabase): ProductDao = db.getProductDao()
+
+    @Provides
+    fun provideProductPreviewDao(db: ProductDatabase): ProductPreviewDao = db.getProductPreviewDao()
 }

@@ -1,4 +1,4 @@
-package ru.ozon.utils.ui.recycler
+package ru.ozon.coreui.recycler
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil

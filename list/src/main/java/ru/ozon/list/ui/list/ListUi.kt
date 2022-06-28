@@ -3,18 +3,21 @@ package ru.ozon.list.ui.list
 import android.animation.ValueAnimator
 import android.view.View
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import ru.ozon.utils.ui.FragmentLifecycleObserver
-import ru.ozon.utils.ui.recycler.DiffAdapter
+import ru.ozon.coreui.FragmentLifecycleObserver
+import ru.ozon.coreui.recycler.DiffAdapter
+import ru.ozon.details.ui.DetailsRouter
 import javax.inject.Inject
 import com.srggrch.coreui.R as CoreR
 
 class ListUi @Inject constructor(
     fragment: ListFragment,
-    private val vm: ListViewModel
+    private val vm: ListViewModel,
+    private val detailsRouter: DetailsRouter
 ) : FragmentLifecycleObserver<ListFragment>(fragment) {
     private val viewBinding get() = fragment.viewBinding
 
@@ -40,6 +43,12 @@ class ListUi @Inject constructor(
                     } else {
                         vm.addToFavorite(it)
                     }
+                },
+                onItemClicked = {
+                    detailsRouter.goDetails(
+                        fragment.findNavController(),
+                        it.guid
+                    )
                 }
             ))
 

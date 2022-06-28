@@ -4,13 +4,14 @@ import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import ru.ozon.list.databinding.ItemProductPreviewBinding
-import ru.ozon.utils.ui.recycler.AdapterItem
+import ru.ozon.coreui.recycler.AdapterItem
 import com.srggrch.coreui.R as CoreR
 
 internal object ProductsAdapterDelegate {
     operator fun invoke(
         onAddToCardClicked: (item: ProductPreviewItem) -> Unit,
         onFavoriteClicked: (item: ProductPreviewItem) -> Unit,
+        onItemClicked: (item: ProductPreviewItem) -> Unit
     ): AdapterDelegate<List<AdapterItem>> = adapterDelegateViewBinding<ProductPreviewItem, _, _>(
         viewBinding = { inflater, parent ->
             ItemProductPreviewBinding.inflate(inflater, parent, false)
@@ -18,8 +19,13 @@ internal object ProductsAdapterDelegate {
     ) {
         with(binding) {
             val glide = Glide.with(itemView)
+
             addToCart.setOnClickListener {
                 onAddToCardClicked(item)
+            }
+
+            root.setOnClickListener {
+                onItemClicked(item)
             }
 
             fav.setOnClickListener {

@@ -1,4 +1,4 @@
-package ru.ozon.utils.ui
+package ru.ozon.utils
 
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols

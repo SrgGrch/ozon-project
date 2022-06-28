@@ -5,19 +5,66 @@
     </style>
 
     <style name="Black.Bold" parent="Black">
-        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Black.Bold.14" parent="Black.Bold">
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Black.Bold.16" parent="Black.Bold">
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="Black.Bold.20" parent="Black.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Black.Bold.24" parent="Black.Bold">
         <item name="android:textSize">24sp</item>
     </style>
 
+    <style name="Black.12" parent="Black">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Black.14" parent="Black">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Black.16" parent="Black">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Black.18" parent="Black">
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="Black.24" parent="Black">
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Grey" parent="Theme.Ozon">
+        <item name="android:textColor">@color/text_all_grey</item>
+    </style>
+
+    <style name="Grey.16" parent="Grey">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="White" parent="Theme.Ozon">
+        <item name="android:textColor">@color/text_all_white</item>
+    </style>
+
+    <style name="White.Bold" parent="White">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="White.Bold.20" parent="White.Bold">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="White.16" parent="White">
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

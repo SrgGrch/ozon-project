@@ -1,4 +1,4 @@
-package ru.ozon.utils.ui
+package ru.ozon.coreui
 
 import android.content.Context
 import androidx.annotation.LayoutRes

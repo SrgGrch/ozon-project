@@ -6,9 +6,7 @@ import com.srggrch.core.data.storages.ProductPreviewStorage
 import com.srggrch.core.data.models.Product
 import com.srggrch.core.data.models.ProductPreview
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
 import ru.ozon.utils.data.*
 import java.util.*
@@ -29,24 +27,12 @@ internal class ProductPreviewRepositoryImpl @Inject constructor(
     }
 
     override fun getProductsPreviews(): Flow<Resource<List<ProductPreview>>> {
-        return flow {
-            val localData = productPreviewStorage.loadProducts().takeIf { it.isNotEmpty() }
-
-            emit(
-                Resource.newLoading(
-                    localData
-                )
-            )
-
-            emit(
-                productService.getProducts()
-                    .doOnSuccess {
-                        productPreviewStorage.saveProducts(it)
-                    }
-                    .mapError {
-                        it.copy(data = localData)
-                    }
-            )
-        }.flowOn(Dispatchers.IO)
+        return productPreviewStorage.loadProductsFlow()
+            .map {
+                Resource.newSuccess(it)
+            }
+            .onStart {
+                update()
+            }.flowOn(Dispatchers.IO)
     }
 }

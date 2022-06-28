@@ -1,4 +1,4 @@
-package ru.ozon.list.ui.domain
+package ru.ozon.list.domain
 
 import com.srggrch.core.data.models.ProductPreview
 import kotlinx.coroutines.flow.Flow

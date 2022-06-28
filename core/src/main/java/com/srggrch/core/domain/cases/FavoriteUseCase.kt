@@ -3,6 +3,6 @@ package com.srggrch.core.domain.cases
 import java.util.*
 
 interface FavoriteUseCase {
-    suspend fun addToFavorite(guid: UUID)
-    suspend fun removeFromFavorite(guid: UUID)
+    suspend fun addToFavorite(uuid: UUID)
+    suspend fun removeFromFavorite(uuid: UUID)
 }
