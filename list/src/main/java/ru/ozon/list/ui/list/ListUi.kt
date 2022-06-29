@@ -26,6 +26,8 @@ class ListUi @Inject constructor(
     override fun onViewReady(view: View) {
         setupUi()
 
+        vm.onCreate()
+
         vm.state
             .onEach(::renderState)
             .launchIn(viewScope)
@@ -35,7 +37,6 @@ class ListUi @Inject constructor(
         with(viewBinding) {
             recycler.adapter = DiffAdapter(ProductsAdapterDelegate(
                 onAddToCardClicked = {
-
                 },
                 onFavoriteClicked = {
                     if (it.isFavorite) {
@@ -64,12 +65,20 @@ class ListUi @Inject constructor(
                     }
                 }
             })
+
             swipeRefresh.setOnRefreshListener {
                 swipeRefresh.isRefreshing = false // todo
+            }
+
+            addItem.setOnClickListener {
+                // todo
             }
         }
     }
 
+    override fun onViewDestroy() {
+        vm.onDestroy()
+    }
 
     private fun renderState(state: ListViewModel.State) {
         when (state) {
