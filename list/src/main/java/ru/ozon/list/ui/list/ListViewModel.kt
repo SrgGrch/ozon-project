@@ -7,8 +7,8 @@ import com.srggrch.core.domain.cases.FavoriteUseCase
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ru.ozon.list.domain.GetProductPreviewUseCase
-import ru.ozon.utils.data.Resource
 import ru.ozon.utils.MoneyFormatter
+import ru.ozon.utils.data.Resource
 import javax.inject.Inject
 
 class ListViewModel @Inject constructor(

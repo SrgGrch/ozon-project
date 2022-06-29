@@ -1,9 +1,9 @@
 package com.srggrch.core.di
 
-import com.srggrch.core.data.storages.ProductPreviewStorage
-import com.srggrch.core.data.storages.ProductPreviewStorageImpl
 import com.srggrch.core.data.storages.ProductDetailsStorage
 import com.srggrch.core.data.storages.ProductDetailsStorageImpl
+import com.srggrch.core.data.storages.ProductPreviewStorage
+import com.srggrch.core.data.storages.ProductPreviewStorageImpl
 import dagger.Binds
 import dagger.Module
 

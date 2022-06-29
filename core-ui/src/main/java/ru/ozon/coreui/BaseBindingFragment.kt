@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import dagger.android.support.AndroidSupportInjection
 
-abstract class BaseBindingFragment<Bindings: ViewBinding> : Fragment {
+abstract class BaseBindingFragment<Bindings : ViewBinding> : Fragment {
     constructor() : super()
     constructor(@LayoutRes contentLayoutId: Int) : super(contentLayoutId)
 

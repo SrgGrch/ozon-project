@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Theme.Ozon.FavButton" parent="Theme.Ozon">
         <item name="android:layout_width">@dimen/fav_button_radius</item>
         <item name="android:layout_height">@dimen/fav_button_radius</item>

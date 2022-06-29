@@ -1,7 +1,6 @@
 package com.srggrch.core.workers.factory
 
 import androidx.work.CoroutineWorker
-import androidx.work.Worker
 import androidx.work.WorkerParameters
 
 interface ChildWorkerFactory {

@@ -4,7 +4,6 @@ import com.srggrch.core.data.db.dao.ProductPreviewDao
 import com.srggrch.core.data.db.entities.ProductPreviewEntity
 import com.srggrch.core.data.models.ProductPreview
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

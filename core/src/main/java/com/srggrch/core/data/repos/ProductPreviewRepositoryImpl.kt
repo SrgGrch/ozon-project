@@ -1,15 +1,17 @@
 package com.srggrch.core.data.repos
 
-import com.srggrch.core.data.services.ProductService
-import com.srggrch.core.data.storages.ProductDetailsStorage
-import com.srggrch.core.data.storages.ProductPreviewStorage
-import com.srggrch.core.data.models.Product
 import com.srggrch.core.data.models.ProductPreview
+import com.srggrch.core.data.services.ProductService
+import com.srggrch.core.data.storages.ProductPreviewStorage
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.withContext
-import ru.ozon.utils.data.*
-import java.util.*
+import ru.ozon.utils.data.Resource
+import ru.ozon.utils.data.doOnSuccess
+import ru.ozon.utils.data.mapDataToUnit
 import javax.inject.Inject
 
 internal class ProductPreviewRepositoryImpl @Inject constructor(
@@ -18,11 +20,13 @@ internal class ProductPreviewRepositoryImpl @Inject constructor(
 ) : ProductPreviewRepository {
     override suspend fun update(): Resource<Unit> {
         return withContext(Dispatchers.IO) {
-            productService.getProducts()
+            val a = productService.getProducts()
                 .doOnSuccess {
                     productPreviewStorage.saveProducts(it)
                 }
                 .mapDataToUnit()
+
+            a
         }
     }
 

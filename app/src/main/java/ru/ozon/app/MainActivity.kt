@@ -1,7 +1,7 @@
 package ru.ozon.app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 

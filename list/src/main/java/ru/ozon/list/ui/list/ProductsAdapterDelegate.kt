@@ -3,8 +3,8 @@ package ru.ozon.list.ui.list
 import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
-import ru.ozon.list.databinding.ItemProductPreviewBinding
 import ru.ozon.coreui.recycler.AdapterItem
+import ru.ozon.list.databinding.ItemProductPreviewBinding
 import com.srggrch.coreui.R as CoreR
 
 internal object ProductsAdapterDelegate {

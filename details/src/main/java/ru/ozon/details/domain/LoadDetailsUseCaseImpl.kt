@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 internal class LoadDetailsUseCaseImpl @Inject constructor(
     private val productDetailsRepository: ProductDetailsRepository
-): LoadDetailsUseCase {
+) : LoadDetailsUseCase {
     override suspend fun execute(uuid: UUID): Resource<Product> {
         return productDetailsRepository.findProductDetails(uuid)
     }

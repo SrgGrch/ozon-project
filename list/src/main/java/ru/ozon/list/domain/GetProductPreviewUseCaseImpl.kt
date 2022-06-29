@@ -1,7 +1,7 @@
 package ru.ozon.list.domain
 
-import com.srggrch.core.data.repos.ProductPreviewRepository
 import com.srggrch.core.data.models.ProductPreview
+import com.srggrch.core.data.repos.ProductPreviewRepository
 import kotlinx.coroutines.flow.Flow
 import ru.ozon.utils.data.Resource
 import javax.inject.Inject

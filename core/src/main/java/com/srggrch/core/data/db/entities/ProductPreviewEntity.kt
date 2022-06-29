@@ -1,6 +1,5 @@
 package com.srggrch.core.data.db.entities
 
-import com.srggrch.core.data.db.dao.ProductPreviewDao
 import java.util.*
 
 

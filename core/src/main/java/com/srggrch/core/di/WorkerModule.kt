@@ -3,8 +3,8 @@ package com.srggrch.core.di
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkManager
-import com.srggrch.core.workers.LoadPreviewWorker
 import com.srggrch.core.workers.LoadDetailsWorker
+import com.srggrch.core.workers.LoadPreviewWorker
 import com.srggrch.core.workers.factory.ChildWorkerFactory
 import dagger.Binds
 import dagger.MapKey
