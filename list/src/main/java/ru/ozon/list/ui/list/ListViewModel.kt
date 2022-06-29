@@ -12,7 +12,6 @@ import ru.ozon.utils.MoneyFormatter
 import ru.ozon.utils.data.Resource
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
-import kotlin.time.Duration.Companion.seconds
 
 class ListViewModel @Inject constructor(
     private val getProductPreviewUseCase: GetProductPreviewUseCase,

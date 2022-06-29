@@ -6,4 +6,5 @@
 
     <include app:graph="@navigation/graph_feature" />
     <include app:graph="@navigation/graph_details" />
+    <include app:graph="@navigation/graph_add_product" />
 </navigation>

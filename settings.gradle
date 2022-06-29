@@ -17,9 +17,10 @@ rootProject.name = "Ozon"
 
 include ':app'
 
-include ':list'
-include ':details'
-
 include ':core'
 include ':core-ui'
 include ':utils'
+
+include ':list'
+include ':details'
+include ':add-product'

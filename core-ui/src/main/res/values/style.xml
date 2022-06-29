@@ -24,8 +24,6 @@
     </style>
 
     <style name="Theme.Ozon.Toolbar" parent="Theme.Ozon">
-        <item name="android:src">@drawable/ic_arrow_back_24</item>
-        <item name="android:tint">@color/black</item>
         <item name="android:background">@color/white</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/toolbar_height</item>

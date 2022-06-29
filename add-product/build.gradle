@@ -2,9 +2,7 @@ apply from: "../module.gradle"
 apply from: "../ui.gradle"
 
 dependencies {
-    implementation project(":core")
-    implementation project(":details")
+    api project(":core")
     implementation project(':core-ui')
     implementation project(":utils")
-    implementation project(path: ':add-product')
 }

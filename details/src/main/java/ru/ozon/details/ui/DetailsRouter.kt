@@ -9,7 +9,7 @@ interface DetailsRouter {
     fun goDetails(navController: NavController, uuid: UUID)
 }
 
-class DetailsRouterImpl @Inject constructor() : DetailsRouter {
+internal class DetailsRouterImpl @Inject constructor() : DetailsRouter {
     override fun goDetails(navController: NavController, uuid: UUID) {
         navController.navigate(
             R.id.graph_details,

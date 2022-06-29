@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import ru.ozon.addproduct.ui.AddProductRouter
 import ru.ozon.coreui.FragmentLifecycleObserver
 import ru.ozon.coreui.recycler.DiffAdapter
 import ru.ozon.details.ui.DetailsRouter
@@ -17,7 +18,8 @@ import com.srggrch.coreui.R as CoreR
 class ListUi @Inject constructor(
     fragment: ListFragment,
     private val vm: ListViewModel,
-    private val detailsRouter: DetailsRouter
+    private val detailsRouter: DetailsRouter,
+    private val addProductRouter: AddProductRouter
 ) : FragmentLifecycleObserver<ListFragment>(fragment) {
     private val viewBinding get() = fragment.viewBinding
 
@@ -71,7 +73,7 @@ class ListUi @Inject constructor(
             }
 
             addItem.setOnClickListener {
-                // todo
+                addProductRouter.goAddProduct(fragment.findNavController())
             }
         }
     }

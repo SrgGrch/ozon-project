@@ -28,6 +28,10 @@ class ProductDetailsRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun saveProduct(product: Product) {
+        productDetailsStorage.saveProduct(product)
+    }
+
     override suspend fun findProductDetails(uuid: UUID): Resource<Product> {
         return productDetailsStorage.findProduct(uuid)?.let { Resource.newSuccess(it) }
             ?: Resource.newError()

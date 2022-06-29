@@ -62,9 +62,11 @@ dependencies {
 
     implementation "androidx.work:work-runtime-ktx:$worker"
 
-    implementation project(':list')
-    implementation project(':details')
     implementation project(":utils")
     implementation project(":core")
     implementation project(":core-ui")
+
+    implementation project(':details')
+    implementation project(':list')
+    implementation project(':add-product')
 }

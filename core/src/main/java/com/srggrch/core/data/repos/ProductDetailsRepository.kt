@@ -7,6 +7,7 @@ import java.util.*
 
 interface ProductDetailsRepository {
     suspend fun update(): Resource<Unit>
+    suspend fun saveProduct(product: Product)
     suspend fun findProductDetails(uuid: UUID): Resource<Product>
     fun findProductDetailsFlow(uuid: UUID): Flow<Resource<Product>>
     suspend fun setFavorite(uuid: UUID, isFavorite: Boolean)

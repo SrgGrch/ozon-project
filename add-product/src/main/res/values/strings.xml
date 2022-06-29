@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">addproduct</string>
+    <string name="addProduct_title">Новый продукт</string>
+    <string name="addProduct_name">Название</string>
+    <string name="addProduct_description">Описание</string>
+    <string name="addProduct_image">Картинка</string>
+    <string name="addProduct_image_error">Ссылка не является правильным URL</string>
+    <string name="addProduct_save">Сохранить</string>
+    <string name="addProduct_weight">Вес</string>
+    <string name="addProduct_price">Цена</string>
+</resources>

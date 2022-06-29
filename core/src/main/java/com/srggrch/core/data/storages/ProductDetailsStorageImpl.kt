@@ -18,6 +18,14 @@ internal class ProductDetailsStorageImpl @Inject constructor(
         return products
     }
 
+    override suspend fun saveProduct(product: Product): Product {
+        val entity = product.toEntity()
+        productDao.insert(entity)
+
+        return product
+    }
+
+
     override suspend fun getAllProducts(): List<Product> {
         return productDao.getAllProducts().map { it.toDomainModel() }
     }
