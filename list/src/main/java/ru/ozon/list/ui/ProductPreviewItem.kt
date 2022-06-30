@@ -1,4 +1,4 @@
-package ru.ozon.list.ui.list
+package ru.ozon.list.ui
 
 import ru.ozon.coreui.recycler.AdapterItem
 import java.util.*

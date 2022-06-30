@@ -1,4 +1,4 @@
-package ru.ozon.list.ui.list
+package ru.ozon.list.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +10,9 @@ import ru.ozon.list.domain.GetProductPreviewUseCase
 import ru.ozon.list.domain.UpdatePreviewListUseCase
 import ru.ozon.utils.MoneyFormatter
 import ru.ozon.utils.data.Resource
-import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
 
-class ListViewModel @Inject constructor(
+class ListViewModel(
     private val getProductPreviewUseCase: GetProductPreviewUseCase,
     private val updatePreviewList: UpdatePreviewListUseCase,
     private val favoriteUseCase: FavoriteUseCase

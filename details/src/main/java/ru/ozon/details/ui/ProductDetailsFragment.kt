@@ -9,7 +9,8 @@ import javax.inject.Inject
 /**
  * PDP fragment
  */
-class ProductDetailsFragment : BaseBindingFragment<FragmentDetailsBinding>(R.layout.fragment_details) {
+class ProductDetailsFragment :
+    BaseBindingFragment<FragmentDetailsBinding>(R.layout.fragment_details) {
     override val viewBinding: FragmentDetailsBinding by viewBinding()
 
     @Inject

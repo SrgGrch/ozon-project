@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class SaveProductUseCaseImpl @Inject constructor(
     private val productDetailsRepository: ProductDetailsRepository
-): SaveProductUseCase {
+) : SaveProductUseCase {
     override suspend fun execute(product: Product) {
         productDetailsRepository.saveProduct(product)
     }

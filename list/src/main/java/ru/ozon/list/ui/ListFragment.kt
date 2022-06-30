@@ -1,4 +1,4 @@
-package ru.ozon.list.ui.list
+package ru.ozon.list.ui
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import ru.ozon.coreui.BaseBindingFragment

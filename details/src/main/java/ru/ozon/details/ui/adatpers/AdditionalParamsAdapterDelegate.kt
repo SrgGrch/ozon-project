@@ -7,16 +7,17 @@ import ru.ozon.details.databinding.ItemAdditionalInfoBinding
 import ru.ozon.details.ui.ProductItem
 
 internal object AdditionalParamsAdapterDelegate {
-    operator fun invoke(): AdapterDelegate<List<ProductItem.AdditionalParam>> = adapterDelegateViewBinding(
-        viewBinding = { inflater, parent ->
-            ItemAdditionalInfoBinding.inflate(inflater, parent, false)
-        }
-    ) {
-        bind {
-            with(binding) {
-                title.setPrintableText(item.title)
-                value.setPrintableText(item.value)
+    operator fun invoke(): AdapterDelegate<List<ProductItem.AdditionalParam>> =
+        adapterDelegateViewBinding(
+            viewBinding = { inflater, parent ->
+                ItemAdditionalInfoBinding.inflate(inflater, parent, false)
+            }
+        ) {
+            bind {
+                with(binding) {
+                    title.setPrintableText(item.title)
+                    value.setPrintableText(item.value)
+                }
             }
         }
-    }
 }

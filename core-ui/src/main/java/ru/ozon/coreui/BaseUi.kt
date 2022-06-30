@@ -2,18 +2,22 @@ package ru.ozon.coreui
 
 import android.view.View
 import androidx.annotation.MainThread
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavArgs
 import androidx.navigation.NavArgsLazy
 import androidx.navigation.fragment.navArgs
 import kotlinx.coroutines.CoroutineScope
+import ru.ozon.utils.viewModels.GenericSavedStateViewModelFactory
+import ru.ozon.utils.viewModels.ViewModelAssistedFactory
 import androidx.fragment.app.Fragment as AndroidXFragment
 
 
-abstract class FragmentLifecycleObserver<Fragment : AndroidXFragment>(
-    protected val fragment: Fragment
+abstract class BaseUi<Fragment : AndroidXFragment>(
+    val fragment: Fragment
 ) : DefaultLifecycleObserver {
 
     private val viewLifecycleObserver = getViewLifecycleObserver()
@@ -29,6 +33,12 @@ abstract class FragmentLifecycleObserver<Fragment : AndroidXFragment>(
 
     @MainThread
     protected inline fun <reified Args : NavArgs> navArgs(): NavArgsLazy<Args> = fragment.navArgs()
+
+    protected inline fun <reified VM : ViewModel> viewModels(
+        assistedFactory: ViewModelAssistedFactory<VM>
+    ) = fragment.viewModels<VM> {
+        GenericSavedStateViewModelFactory(assistedFactory, fragment, fragment.arguments)
+    }
 
     private fun initialize() {
         fragment.lifecycle.addObserver(this)

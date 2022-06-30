@@ -1,4 +1,4 @@
-package ru.ozon.list.ui.list
+package ru.ozon.list.ui
 
 import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate

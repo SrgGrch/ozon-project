@@ -11,9 +11,8 @@ import kotlinx.coroutines.launch
 import ru.ozon.addproduct.domain.SaveProductUseCaseImpl
 import ru.ozon.addproduct.ui.validators.ImageUrlValidator
 import java.util.*
-import javax.inject.Inject
 
-class AddProductViewModel @Inject constructor(
+class AddProductViewModel(
     private val imageUrlValidator: ImageUrlValidator,
     private val saveProductUseCaseImpl: SaveProductUseCaseImpl
 ) : ViewModel() {

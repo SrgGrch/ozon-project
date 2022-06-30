@@ -1,11 +1,11 @@
 package ru.ozon.details.ui
 
-import android.animation.ValueAnimator
 import android.content.res.ColorStateList
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -15,7 +15,7 @@ import com.google.android.material.shape.ShapeAppearanceModel
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import ru.ozon.coreui.FragmentLifecycleObserver
+import ru.ozon.coreui.BaseUi
 import ru.ozon.coreui.setPrintableText
 import ru.ozon.coreui.setPrintableTextOrGone
 import ru.ozon.details.R
@@ -26,13 +26,13 @@ import com.srggrch.coreui.R as CoreR
 
 class ProductDetailsUi @Inject constructor(
     fragment: ProductDetailsFragment,
-    private val vm: ProductDetailsViewModel
-) : FragmentLifecycleObserver<ProductDetailsFragment>(fragment) {
+    vmFactory: ProductDetailsViewModelFactory
+) : BaseUi<ProductDetailsFragment>(fragment) {
+    private val vm: ProductDetailsViewModel by viewModels(vmFactory)
+
     private val viewBinding get() = fragment.viewBinding
 
     private val args: ProductDetailsFragmentArgs by navArgs()
-
-    private val toolbarElevation: Float by lazy { fragment.resources.getDimension(CoreR.dimen.toolbar_elevation) }
 
     override fun onCreate() {
         vm.fetchData(args.uuid)
@@ -61,7 +61,7 @@ class ProductDetailsUi @Inject constructor(
             }
 
             fav.setOnClickListener {
-                // todo
+                vm.onFavClicked()
             }
 
             setupCardView(contentCard, CoreR.color.white)
@@ -91,6 +91,7 @@ class ProductDetailsUi @Inject constructor(
         when (state) {
             is ProductDetailsViewModel.State.Data -> {
                 viewBinding.swipeRefresh.isRefreshing = false
+                viewBinding.fav.isVisible = true
             }
             is ProductDetailsViewModel.State.Error -> {
                 viewBinding.swipeRefresh.isRefreshing = false
@@ -133,26 +134,12 @@ class ProductDetailsUi @Inject constructor(
         }
     }
 
-    private fun setupAdditionalParams(recycler: RecyclerView, items: List<ProductItem.AdditionalParam>) {
+    private fun setupAdditionalParams(
+        recycler: RecyclerView,
+        items: List<ProductItem.AdditionalParam>
+    ) {
         recycler.adapter = ListDelegationAdapter(AdditionalParamsAdapterDelegate()).apply {
             this.items = items
         }
     }
-
-    private fun animateToolbarElevation(animateOut: Boolean) {
-        var valueFrom = toolbarElevation
-        var valueTo = 0f
-        if (!animateOut) {
-            valueTo = valueFrom
-            valueFrom = 0f
-        }
-        ValueAnimator.ofFloat(valueFrom, valueTo).setDuration(250).apply {
-            startDelay = 0
-            addUpdateListener {
-                viewBinding.toolbar.elevation = it.animatedValue as Float
-            }
-            start()
-        }
-    }
-
 }

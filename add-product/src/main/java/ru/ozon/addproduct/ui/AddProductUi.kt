@@ -6,18 +6,19 @@ import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.ozon.addproduct.R
-import ru.ozon.coreui.FragmentLifecycleObserver
+import ru.ozon.coreui.BaseUi
 import javax.inject.Inject
 
 class AddProductUi @Inject constructor(
     fragment: AddProductFragment,
-    private val vm: AddProductViewModel
-) : FragmentLifecycleObserver<AddProductFragment>(fragment) {
+    vmFactory: AddProductViewModelFactory
+) : BaseUi<AddProductFragment>(fragment) {
+    private val vm: AddProductViewModel by viewModels(vmFactory)
+
     private val viewBinding get() = fragment.viewBinding
 
     override fun onViewReady(view: View) {
         setupUi()
-
         vm.state
             .onEach(::renderState).launchIn(viewScope)
     }

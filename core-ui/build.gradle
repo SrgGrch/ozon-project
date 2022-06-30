@@ -7,4 +7,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle"
 
     implementation "com.github.kirich1409:viewbindingpropertydelegate:$viewbindingpropertydelegate"
+
+    implementation project(":utils")
 }

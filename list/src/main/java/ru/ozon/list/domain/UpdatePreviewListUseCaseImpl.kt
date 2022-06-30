@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class UpdatePreviewListUseCaseImpl @Inject constructor(
     private val productPreviewRepository: ProductPreviewRepository
-): UpdatePreviewListUseCase {
+) : UpdatePreviewListUseCase {
     override suspend fun execute() {
         productPreviewRepository.update()
     }
