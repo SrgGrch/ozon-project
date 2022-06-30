@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srggrch.core.data.models.Product
 import com.srggrch.core.domain.cases.FavoriteUseCase
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,9 +14,8 @@ import ru.ozon.details.domain.LoadDetailsUseCase
 import ru.ozon.utils.MoneyFormatter
 import ru.ozon.utils.data.Resource
 import java.util.*
-import javax.inject.Inject
 
-class ProductDetailsViewModel @Inject constructor(
+class ProductDetailsViewModel(
     private val loadDetailsUseCase: LoadDetailsUseCase,
     private val favoriteUseCase: FavoriteUseCase
 ) : ViewModel() {
@@ -86,13 +84,6 @@ class ProductDetailsViewModel @Inject constructor(
             }
 
             _state.emit(state.copy(product = product.copy(isFavorite = !product.isFavorite)))
-        }
-
-        viewModelScope.launch {
-            while (true) {
-                println("123")
-                delay(100)
-            }
         }
     }
 }
