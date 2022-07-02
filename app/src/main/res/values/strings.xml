@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Ozon</string>
+    <string name="main_noInternet">Нет интернета</string>
 </resources>
