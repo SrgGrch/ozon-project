@@ -4,8 +4,9 @@ import com.srggrch.core.data.repos.ProductDetailsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.ozon.utils.data.Resource
+import javax.inject.Inject
 
-class UpdateDetailsUseCaseImpl(
+internal class UpdateDetailsUseCaseImpl @Inject constructor(
     private val productDetailsRepository: ProductDetailsRepository
 ) : UpdateDetailsUseCase {
     override suspend fun execute(): Resource<Unit> {

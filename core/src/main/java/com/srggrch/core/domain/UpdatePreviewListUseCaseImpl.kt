@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import ru.ozon.utils.data.Resource
 import javax.inject.Inject
 
-class UpdatePreviewListUseCaseImpl @Inject constructor(
+internal class UpdatePreviewListUseCaseImpl @Inject constructor(
     private val productPreviewRepository: ProductPreviewRepository
 ) : UpdatePreviewListUseCase {
     override suspend fun execute(): Resource<Unit> {

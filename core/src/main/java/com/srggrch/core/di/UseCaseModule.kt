@@ -1,7 +1,6 @@
 package com.srggrch.core.di
 
-import com.srggrch.core.domain.FavoriteUseCase
-import com.srggrch.core.domain.FavoriteUseCaseImpl
+import com.srggrch.core.domain.*
 import dagger.Binds
 import dagger.Module
 
@@ -9,4 +8,10 @@ import dagger.Module
 internal interface UseCaseModule {
     @Binds
     fun bindFavoriteUseCase(impl: FavoriteUseCaseImpl): FavoriteUseCase
+
+    @Binds
+    fun bindUpdatePreviewListUseCase(impl: UpdatePreviewListUseCaseImpl): UpdatePreviewListUseCase
+
+    @Binds
+    fun bindUpdateDetailsUseCase(impl: UpdateDetailsUseCaseImpl): UpdateDetailsUseCase
 }
