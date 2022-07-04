@@ -1,9 +1,9 @@
 package ru.ozon.list.ui
 
 import androidx.lifecycle.SavedStateHandle
-import com.srggrch.core.domain.cases.FavoriteUseCase
+import com.srggrch.core.domain.FavoriteUseCase
+import com.srggrch.core.domain.UpdatePreviewListUseCase
 import ru.ozon.list.domain.GetProductPreviewUseCase
-import ru.ozon.list.domain.UpdatePreviewListUseCase
 import ru.ozon.utils.viewModels.ViewModelAssistedFactory
 import javax.inject.Inject
 

@@ -3,7 +3,7 @@ package ru.ozon.details.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srggrch.core.data.models.Product
-import com.srggrch.core.domain.cases.FavoriteUseCase
+import com.srggrch.core.domain.FavoriteUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

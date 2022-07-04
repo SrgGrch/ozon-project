@@ -1,4 +1,4 @@
-package com.srggrch.core.domain.cases
+package com.srggrch.core.domain
 
 import java.util.*
 

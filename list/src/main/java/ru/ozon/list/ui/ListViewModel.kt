@@ -3,11 +3,11 @@ package ru.ozon.list.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srggrch.core.data.models.ProductPreview
-import com.srggrch.core.domain.cases.FavoriteUseCase
+import com.srggrch.core.domain.FavoriteUseCase
+import com.srggrch.core.domain.UpdatePreviewListUseCase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import ru.ozon.list.domain.GetProductPreviewUseCase
-import ru.ozon.list.domain.UpdatePreviewListUseCase
 import ru.ozon.utils.MoneyFormatter
 import ru.ozon.utils.data.Resource
 import kotlin.time.Duration.Companion.minutes
