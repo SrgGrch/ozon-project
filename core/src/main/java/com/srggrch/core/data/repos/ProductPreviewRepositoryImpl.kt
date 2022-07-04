@@ -20,13 +20,11 @@ internal class ProductPreviewRepositoryImpl @Inject constructor(
 ) : ProductPreviewRepository {
     override suspend fun update(): Resource<Unit> {
         return withContext(Dispatchers.IO) {
-            val a = productService.getProducts()
+            productService.getProducts()
                 .doOnSuccess {
                     productPreviewStorage.saveProducts(it)
                 }
                 .mapDataToUnit()
-
-            a
         }
     }
 

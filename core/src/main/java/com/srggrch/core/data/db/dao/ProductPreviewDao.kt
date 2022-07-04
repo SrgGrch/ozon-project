@@ -20,9 +20,6 @@ internal interface ProductPreviewDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE, entity = ProductEntity::class)
     suspend fun insertAll(product: List<ProductPreviewEntity>)
 
-//    @Update
-//    suspend fun update(product: ProductPreviewEntity)
-
     @Query(
         """
         UPDATE ProductEntity

@@ -5,7 +5,7 @@ import dagger.Module
 @Module(
     includes = [
         UiModule::class,
-        CaseModule::class
+        UseCaseModule::class
     ]
 )
 interface DetailsModule

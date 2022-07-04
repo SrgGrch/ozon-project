@@ -26,35 +26,11 @@ internal interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(product: ProductEntity)
 
-    //    @Query(
-//        """
-//        UPDATE ProductEntity
-//        SET name         = :name,
-//        price            = :price,
-//        description      = :description,
-//        rating           = :rating,
-//        images           = :images,
-//        weight           = :weight,
-//        count            = :count,
-//        availableCount   = :availableCount,
-//        additionalParams = :additionalParams
-//        WHERE guid = :guid
-//    """
-//    )
-//    suspend fun updateBaseInfo(
-//        guid: UUID,
-//        name: String,
-//        price: String,
-//        description: String,
-//        rating: Double,
-//        images: List<String>,
-//        weight: Double?,
-//        count: Int?,
-//        availableCount: Int?,
-//        additionalParams: Map<String, String>
-//    )
     @Update(entity = ProductEntity::class)
     suspend fun updateBaseInfo(
         products: List<ProductBaseEntity>
     )
+
+    @Query("UPDATE ProductEntity SET viewsCount = viewsCount + 1 WHERE guid = :uuid")
+    fun increaseViewCount(uuid: UUID)
 }

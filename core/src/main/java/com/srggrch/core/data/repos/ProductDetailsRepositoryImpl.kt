@@ -48,7 +48,7 @@ class ProductDetailsRepositoryImpl @Inject constructor(
 
     override suspend fun productViewed(uuid: UUID) {
         withContext(Dispatchers.IO) {
-            // TODO("Not yet implemented")
+            productDetailsStorage.increaseViewCount(uuid)
         }
     }
 

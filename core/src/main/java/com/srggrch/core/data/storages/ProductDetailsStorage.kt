@@ -9,4 +9,5 @@ interface ProductDetailsStorage {
     suspend fun getAllProducts(): List<Product>
     suspend fun findProduct(uuid: UUID): Product?
     suspend fun setFavorite(uuid: UUID, isFavorite: Boolean)
+    suspend fun increaseViewCount(uuid: UUID)
 }

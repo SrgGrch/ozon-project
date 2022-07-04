@@ -38,6 +38,10 @@ internal class ProductDetailsStorageImpl @Inject constructor(
         productDao.setFavorite(uuid, isFavorite)
     }
 
+    override suspend fun increaseViewCount(uuid: UUID) {
+        productDao.increaseViewCount(uuid)
+    }
+
     private fun Product.toEntity() = ProductEntity(
         guid,
         name,
@@ -65,6 +69,7 @@ internal class ProductDetailsStorageImpl @Inject constructor(
         weight,
         count,
         availableCount,
-        additionalParams
+        additionalParams,
+        viewsCount
     )
 }

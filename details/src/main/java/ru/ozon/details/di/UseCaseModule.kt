@@ -6,7 +6,7 @@ import ru.ozon.details.domain.LoadDetailsUseCase
 import ru.ozon.details.domain.LoadDetailsUseCaseImpl
 
 @Module
-internal interface CaseModule {
+internal interface UseCaseModule {
     @Binds
     fun bindLoadDetailsUseCase(impl: LoadDetailsUseCaseImpl): LoadDetailsUseCase
 }

@@ -20,5 +20,7 @@ internal data class ProductEntity(
     val count: Int? = null,
     val availableCount: Int? = null,
     @ColumnInfo(defaultValue = "{}")
-    val additionalParams: Map<String, String> = emptyMap()
+    val additionalParams: Map<String, String> = emptyMap(),
+    @ColumnInfo(defaultValue = "0")
+    val viewsCount: Int = 0
 )

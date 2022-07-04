@@ -6,7 +6,7 @@ import ru.ozon.addproduct.domain.SaveProductUseCase
 import ru.ozon.addproduct.domain.SaveProductUseCaseImpl
 
 @Module
-internal interface CaseModule {
+internal interface UseCaseModule {
     @Binds
     fun bindSaveProductUseCase(impl: SaveProductUseCaseImpl): SaveProductUseCase
 }
