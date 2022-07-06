@@ -10,17 +10,17 @@ import javax.inject.Inject
 internal class ProductPreviewStorageImpl @Inject constructor(
     private val productPreviewDao: ProductPreviewDao
 ) : ProductPreviewStorage {
-    override suspend fun saveProducts(products: List<ProductPreview>): List<ProductPreview> {
+    override suspend fun saveProductsPreviews(products: List<ProductPreview>): List<ProductPreview> {
         productPreviewDao.insertAll(products.map { it.toEntity() })
         return products
     }
 
-    override suspend fun loadProducts(): List<ProductPreview> {
+    override suspend fun loadProductsPreviews(): List<ProductPreview> {
         return productPreviewDao.getAllProductPreviews()
             .map { it.toDomain() }
     }
 
-    override fun loadProductsFlow(): Flow<List<ProductPreview>> {
+    override fun loadProductsPreviewsFlow(): Flow<List<ProductPreview>> {
         return productPreviewDao.getAllProductPreviewsFlow()
             .map { it.map { p -> p.toDomain() } }
     }

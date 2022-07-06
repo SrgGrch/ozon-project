@@ -18,14 +18,14 @@ internal class ProductPreviewRepositoryImpl @Inject constructor(
     override suspend fun update(): Resource<Unit> {
         return productService.getProducts()
             .doOnSuccess {
-                productPreviewStorage.saveProducts(it)
+                productPreviewStorage.saveProductsPreviews(it)
             }
             .mapDataToUnit()
 
     }
 
     override fun getProductsPreviews(): Flow<Resource<List<ProductPreview>>> {
-        return productPreviewStorage.loadProductsFlow()
+        return productPreviewStorage.loadProductsPreviewsFlow()
             .map {
                 Resource.newSuccess(it)
             }
