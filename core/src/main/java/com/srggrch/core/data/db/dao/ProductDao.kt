@@ -33,4 +33,7 @@ internal interface ProductDao {
 
     @Query("UPDATE ProductEntity SET viewsCount = viewsCount + 1 WHERE guid = :uuid")
     fun increaseViewCount(uuid: UUID)
+
+    @Query("UPDATE ProductEntity SET isInCart = :isInCart WHERE guid = :uuid")
+    fun setAddToCart(uuid: UUID, isInCart: Boolean)
 }

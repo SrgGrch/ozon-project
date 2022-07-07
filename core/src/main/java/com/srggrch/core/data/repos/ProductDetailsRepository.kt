@@ -12,4 +12,5 @@ interface ProductDetailsRepository {
     fun findProductDetailsFlow(uuid: UUID): Flow<Resource<Product>>
     suspend fun setFavorite(uuid: UUID, isFavorite: Boolean)
     suspend fun productViewed(uuid: UUID)
+    suspend fun setAddToCart(uuid: UUID, isInCart: Boolean)
 }

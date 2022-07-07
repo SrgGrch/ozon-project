@@ -3,4 +3,6 @@
     <string name="contentDesc_addItem">Добавить товар</string>
     <string name="list_toolbar_title">Список товаров</string>
     <string name="list_no_items">Нет товаров</string>
+    <string name="list_header_under_hundred">до 100</string>
+    <string name="list_header_over_hundred">от 100</string>
 </resources>

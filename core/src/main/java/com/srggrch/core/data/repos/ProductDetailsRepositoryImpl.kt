@@ -45,6 +45,10 @@ class ProductDetailsRepositoryImpl @Inject constructor(
         productDetailsStorage.increaseViewCount(uuid)
     }
 
+    override suspend fun setAddToCart(uuid: UUID, isInCart: Boolean) {
+        productDetailsStorage.setAddToCart(uuid, isInCart)
+    }
+
     override suspend fun setFavorite(uuid: UUID, isFavorite: Boolean) {
         productDetailsStorage.setFavorite(uuid, isFavorite)
     }

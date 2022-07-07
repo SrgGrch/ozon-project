@@ -28,4 +28,15 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/toolbar_height</item>
     </style>
+
+    <declare-styleable name="ProgressButton">
+        <attr name="pb_backgroundTint" format="color" />
+        <attr name="pb_textSize" format="dimension" />
+        <attr name="pb_textColor" format="color" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <style name="Theme.Ozon.ProgressButton">
+
+    </style>
 </resources>

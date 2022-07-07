@@ -81,6 +81,10 @@ class PreferencesProductDetailsStorage @Inject constructor(
         }
     }
 
+    override suspend fun setAddToCart(uuid: UUID, isInCart: Boolean) {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun saveProductsPreviews(products: List<ProductPreview>): List<ProductPreview> {
         saveProducts(products.map { it.toEntity() })
 

@@ -10,4 +10,5 @@ interface ProductDetailsStorage {
     suspend fun findProduct(uuid: UUID): Product?
     suspend fun setFavorite(uuid: UUID, isFavorite: Boolean)
     suspend fun increaseViewCount(uuid: UUID)
+    suspend fun setAddToCart(uuid: UUID, isInCart: Boolean)
 }

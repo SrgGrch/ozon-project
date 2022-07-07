@@ -42,6 +42,10 @@ internal class ProductDetailsStorageImpl @Inject constructor(
         productDao.increaseViewCount(uuid)
     }
 
+    override suspend fun setAddToCart(uuid: UUID, isInCart: Boolean) {
+        productDao.setAddToCart(uuid, isInCart)
+    }
+
     private fun Product.toEntity() = ProductEntity(
         guid,
         name,

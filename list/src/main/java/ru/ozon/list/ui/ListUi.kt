@@ -10,8 +10,9 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.ozon.addproduct.ui.AddProductRouter
 import ru.ozon.coreui.BaseUi
-import ru.ozon.coreui.recycler.DiffAdapter
 import ru.ozon.details.ui.DetailsRouter
+import ru.ozon.list.ui.adapter.ProductAdapter
+import ru.ozon.list.ui.adapter.ProductsAdapterDelegate
 import javax.inject.Inject
 import com.srggrch.coreui.R as CoreR
 
@@ -39,23 +40,25 @@ class ListUi @Inject constructor(
 
     private fun setupUi() {
         with(viewBinding) {
-            recycler.adapter = DiffAdapter(ProductsAdapterDelegate(
-                onAddToCardClicked = {
-                },
-                onFavoriteClicked = {
-                    if (it.isFavorite) {
-                        vm.removeFromFavorite(it)
-                    } else {
-                        vm.addToFavorite(it)
+            recycler.adapter = ProductAdapter(
+                *ProductsAdapterDelegate(
+                    onAddToCardClicked = {
+                        vm.onAddToCartClicked(it)
+                    },
+                    onFavoriteClicked = {
+                        if (it.isFavorite) {
+                            vm.removeFromFavorite(it)
+                        } else {
+                            vm.addToFavorite(it)
+                        }
+                    },
+                    onItemClicked = {
+                        detailsRouter.goDetails(
+                            fragment.findNavController(),
+                            it.guid
+                        )
                     }
-                },
-                onItemClicked = {
-                    detailsRouter.goDetails(
-                        fragment.findNavController(),
-                        it.guid
-                    )
-                }
-            ))
+                ))
 
             recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -101,7 +104,7 @@ class ListUi @Inject constructor(
     }
 
     private fun showList(list: List<ProductPreviewItem>, state: ListViewModel.State) {
-        (viewBinding.recycler.adapter as DiffAdapter).items = list
+        (viewBinding.recycler.adapter as ProductAdapter).items = list
         viewBinding.noItems.isVisible = list.isEmpty() && state !is ListViewModel.State.Loading
     }
 

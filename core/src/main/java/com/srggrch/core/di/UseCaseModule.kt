@@ -14,4 +14,7 @@ internal interface UseCaseModule {
 
     @Binds
     fun bindUpdateDetailsUseCase(impl: UpdateDetailsUseCaseImpl): UpdateDetailsUseCase
+
+    @Binds
+    fun bindAddToCardUseCase(impl: AddToCardUseCaseImpl): AddToCardUseCase
 }
