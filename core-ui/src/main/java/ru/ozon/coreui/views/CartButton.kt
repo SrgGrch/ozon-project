@@ -60,13 +60,6 @@ class CartButton @JvmOverloads constructor(
             count += 1
             countListener?.invoke(count)
         }
-//        binding.countGroup.referencedIds = intArrayOf(
-//            binding.count.id,
-//            binding.plus.id,
-//            binding.minus.id
-//        )
-
-//        binding.countGroup.isVisible = false
     }
 
     fun setText(@StringRes textId: Int) {
