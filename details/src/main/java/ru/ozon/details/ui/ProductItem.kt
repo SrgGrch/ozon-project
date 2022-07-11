@@ -11,6 +11,7 @@ data class ProductItem(
     val rating: Double,
     val isFavorite: Boolean,
     val isInCart: Boolean,
+    val cartCount: Int,
     val images: List<String>,
     val count: PrintableText?,
     val availableCount: PrintableText?,

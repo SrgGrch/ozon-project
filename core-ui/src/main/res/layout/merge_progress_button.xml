@@ -10,9 +10,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/all_white"
-        app:backgroundTint="@color/green"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:backgroundTint="@color/green" />
 
     <ProgressBar
         android:id="@+id/progress"

@@ -3,6 +3,7 @@ package ru.ozon.details.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srggrch.core.data.models.Product
+import com.srggrch.core.domain.AddToCardUseCase
 import com.srggrch.core.domain.FavoriteUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,8 @@ import java.util.*
 
 class ProductDetailsViewModel(
     private val loadDetailsUseCase: LoadDetailsUseCase,
-    private val favoriteUseCase: FavoriteUseCase
+    private val favoriteUseCase: FavoriteUseCase,
+    private val addToCardUseCase: AddToCardUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow<State>(State.Loading())
     internal val state: Flow<State> = _state.asStateFlow()
@@ -50,6 +52,7 @@ class ProductDetailsViewModel(
         rating,
         isFavorite,
         isInCart,
+        if (isInCart) (1..100).random() else 0,// todo get from DB
         images,
         count?.let { PrintableText.StringResource(R.string.details_count, it) },
         availableCount?.let { PrintableText.Raw(it.toString()) },
@@ -71,6 +74,47 @@ class ProductDetailsViewModel(
             }
         }
     )
+
+    fun addToCart() {
+        viewModelScope.launch {
+            addToCardUseCase.addToCart(_state.value.product!!.guid)
+            _state.emit(createNewStateWithCount(true, 1))
+        }
+    }
+
+    fun changeCount(count: Int) {
+        viewModelScope.launch {
+            if (count == 0) {
+                addToCardUseCase.removeFromCart(_state.value.product!!.guid)
+                _state.emit(createNewStateWithCount(false))
+            } else {
+                _state.emit(createNewStateWithCount(true, count))
+            }
+        }
+    }
+
+    private fun createNewStateWithCount(isInCart: Boolean, count: Int = 0): State {
+        return when (val state = _state.value) {
+            is State.Data -> State.Data(
+                state.product.copy(
+                    isInCart = isInCart,
+                    cartCount = count
+                )
+            )
+            is State.Error -> State.Error(
+                state.product?.copy(
+                    isInCart = isInCart,
+                    cartCount = count
+                )
+            )
+            is State.Loading -> State.Loading(
+                state.product?.copy(
+                    isInCart = isInCart,
+                    cartCount = count
+                )
+            )
+        }
+    }
 
     fun onFavClicked() {
         val state = _state.value as? State.Data ?: return

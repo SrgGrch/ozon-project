@@ -48,16 +48,20 @@ class ProductDetailsUi @Inject constructor(
 
     private fun setupUi() {
         with(viewBinding) {
+            addToCart.setOnClickListener {
+                vm.addToCart()
+            }
+
+            addToCart.setCountListener {
+                vm.changeCount(it)
+            }
+
             swipeRefresh.setOnRefreshListener {
                 swipeRefresh.isRefreshing = false // todo
             }
 
             back.setOnClickListener {
                 fragment.findNavController().popBackStack()
-            }
-
-            addToCart.setOnClickListener {
-                // todo
             }
 
             fav.setOnClickListener {
@@ -122,6 +126,9 @@ class ProductDetailsUi @Inject constructor(
                     CoreR.drawable.ic_favorite_border_20
                 }
             )
+
+            addToCart.isInCart = data.isInCart
+            addToCart.count = data.cartCount
 
             setupImages(images, data.images)
             setupAdditionalParams(additionalInfo, data.additionalParams)
