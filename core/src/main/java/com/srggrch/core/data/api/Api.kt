@@ -5,9 +5,9 @@ import com.srggrch.core.data.models.ProductPreview
 import retrofit2.http.GET
 
 internal interface Api {
-    @GET("v3/50afcd4b-d81e-473e-827c-1b6cae1ea1b2")
+    @GET("v3/ee6876a1-8c02-45aa-bde4-b91817a8b210")
     suspend fun getProducts(): List<ProductPreview>
 
-    @GET("v3/8c374376-e94e-4c5f-aa30-a9eddb0d7d0a")
+    @GET("v3/d1b4763b-a5ea-471f-83bf-796da466e3d8")
     suspend fun getProductDetails(): List<Product>
 }

@@ -1,10 +1,12 @@
 package com.srggrch.core.data.models
 
+import com.google.gson.annotations.SerializedName
 import java.util.*
 
 data class ProductPreview(
     val guid: UUID,
-    val image: String,
+    @SerializedName("image")
+    val images: List<String>,
     val name: String,
     val price: String,
     val rating: Double,

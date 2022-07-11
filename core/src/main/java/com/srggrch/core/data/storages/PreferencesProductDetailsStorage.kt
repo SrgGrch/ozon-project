@@ -193,7 +193,7 @@ class PreferencesProductDetailsStorage @Inject constructor(
     private fun ProductPreview.toEntity() = ProductEntity(
         guid = guid,
         name = name,
-        images = listOf(image),
+        images = images,
         price = price,
         rating = rating,
         isFavorite = isFavorite,
@@ -201,6 +201,6 @@ class PreferencesProductDetailsStorage @Inject constructor(
     )
 
     private fun ProductEntity.toProductPreview() = ProductPreview(
-        guid, images.first(), name, price, rating, isFavorite, isInCart
+        guid, images, name, price, rating, isFavorite, isInCart
     )
 }

@@ -12,7 +12,7 @@ internal sealed interface ProductPreviewItem : AdapterItem {
 
     data class ProductPreview(
         val guid: UUID,
-        val image: String,
+        val images: List<String>,
         val name: PrintableText,
         val price: PrintableText,
         val rating: Double,

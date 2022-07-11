@@ -4,6 +4,7 @@ import android.widget.ImageButton
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import ru.ozon.coreui.setPrintableText
 import ru.ozon.coreui.views.ProgressButton
@@ -32,7 +33,7 @@ internal object ProductsAdapterDelegate {
             }
         ) {
             with(binding) {
-                val glide = com.bumptech.glide.Glide.with(itemView)
+                val adapter = ListDelegationAdapter(ImagesAdapterDelegate())
 
                 addToCart.setOnClickListener {
                     onAddToCardClicked(item)
@@ -59,11 +60,12 @@ internal object ProductsAdapterDelegate {
                     price.setPrintableText(item.price)
                     name.setPrintableText(item.name)
 
-                    rating.rating = item.rating.toFloat()
+                    pager.adapter = adapter.apply {
+                        this.items = item.images
+                        notifyDataSetChanged()
+                    }
 
-                    glide
-                        .load(item.image)
-                        .into(image)
+                    rating.rating = item.rating.toFloat()
                 }
             }
         }
@@ -114,11 +116,9 @@ internal object ProductsAdapterDelegate {
             with(binding) {
                 p.isFavorite?.let { isFavorite -> setFav(fav, isFavorite) }
                 p.isInCart?.let { isInCart ->
-                    TransitionManager.beginDelayedTransition(binding.root, AutoTransition())
                     setInCart(addToCart, isInCart)
                 }
                 p.isInProgress?.let { isInCart ->
-                    TransitionManager.beginDelayedTransition(binding.root, AutoTransition())
                     setIsInProgress(addToCart, isInCart)
                 }
             }

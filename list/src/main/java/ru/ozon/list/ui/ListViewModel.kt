@@ -130,7 +130,7 @@ class ListViewModel(
 
     private fun ProductPreview.toItem() = ProductPreviewItem.ProductPreview(
         guid,
-        image,
+        images,
         PrintableText.Raw(name),
         PrintableText.Raw(MoneyFormatter.format(price)),
         rating,

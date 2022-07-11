@@ -26,10 +26,10 @@ internal class ProductPreviewStorageImpl @Inject constructor(
     }
 
     private fun ProductPreview.toEntity() = ProductPreviewEntity(
-        guid, name, listOf(image), price, rating, isFavorite, isInCart
+        guid, name, images, price, rating, isFavorite, isInCart
     )
 
     private fun ProductPreviewEntity.toDomain() = ProductPreview(
-        guid, images.first(), name, price, rating, isFavorite, isInCart
+        guid, images, name, price, rating, isFavorite, isInCart
     )
 }
