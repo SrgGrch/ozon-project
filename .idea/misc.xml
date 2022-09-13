@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/add-product/src/main/res/layout/fragment_add_product.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/app/src/main/res/layout/activity_main.xml" value="0.13134057971014493" />
         <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/drawable/ripple_green.xml" value="0.252" />
         <entry key="..\:/Users/Srggrch/Documents/Projects/Android/Ozon/homework-4/core-ui/src/main/res/layout/merge_cart_button.xml" value="0.33" />
@@ -17,5 +18,8 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK" />
 </project>

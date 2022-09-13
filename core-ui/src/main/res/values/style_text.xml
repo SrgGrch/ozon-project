@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Black" parent="Theme.Ozon">
+    <style name="Black" parent="Theme.Shop">
         <item name="android:textColor">@color/text_black</item>
     </style>
 
@@ -45,7 +45,7 @@
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="Grey" parent="Theme.Ozon">
+    <style name="Grey" parent="Theme.Shop">
         <item name="android:textColor">@color/text_all_grey</item>
     </style>
 
@@ -53,7 +53,7 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="White" parent="Theme.Ozon">
+    <style name="White" parent="Theme.Shop">
         <item name="android:textColor">@color/text_all_white</item>
     </style>
 

@@ -27,7 +27,7 @@
 
         <ImageButton
             android:id="@+id/fav"
-            style="@style/Theme.Ozon.FavButton"
+            style="@style/Theme.Shop.FavButton"
             android:layout_margin="8dp"
             android:contentDescription="@string/contentDesc_favButton_add"
             app:layout_constraintEnd_toEndOf="@id/pager"
@@ -46,7 +46,7 @@
 
         <com.willy.ratingbar.ScaleRatingBar
             android:id="@+id/rating"
-            style="@style/Theme.Ozon.GreenRatingBarSmall"
+            style="@style/Theme.Shop.GreenRatingBarSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -66,7 +66,7 @@
             app:layout_constraintTop_toBottomOf="@id/rating"
             tools:text="110 ₽" />
 
-        <ru.ozon.coreui.views.ProgressButton
+        <tech.blur.coreui.views.ProgressButton
             android:id="@+id/addToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

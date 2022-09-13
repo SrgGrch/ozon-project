@@ -2,6 +2,7 @@ apply from: "../module.gradle"
 apply from: "../ui.gradle"
 
 dependencies {
+    api project(":list-api")
     implementation project(":core")
     implementation project(":details")
     implementation project(':core-ui')

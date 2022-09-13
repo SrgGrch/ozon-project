@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/addProductFragment"
-        android:name="ru.ozon.addproduct.ui.AddProductFragment"
+        android:name="tech.blur.addproduct.ui.AddProductFragment"
         android:label="ProductDetailsFragment" />
 </navigation>

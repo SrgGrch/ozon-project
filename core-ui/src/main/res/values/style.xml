@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Ozon.GreenRatingBarSmall" parent="Theme.Ozon">
+    <style name="Theme.Shop.GreenRatingBarSmall" parent="Theme.Shop">
         <item name="srb_starHeight">20dp</item>
         <item name="srb_starWidth">20dp</item>
         <item name="srb_starPadding">0dp</item>
@@ -12,7 +12,7 @@
         <item name="android:numStars">5</item>
     </style>
 
-    <style name="Theme.Ozon.GreenRatingBar" parent="Theme.Ozon.GreenRatingBarSmall">
+    <style name="Theme.Shop.GreenRatingBar" parent="Theme.Shop.GreenRatingBarSmall">
         <item name="srb_starHeight">24dp</item>
         <item name="srb_starWidth">24dp</item>
         <item name="srb_starPadding">0dp</item>
@@ -23,7 +23,7 @@
         <item name="android:numStars">5</item>
     </style>
 
-    <style name="Theme.Ozon.Toolbar" parent="Theme.Ozon">
+    <style name="Theme.Shop.Toolbar" parent="Theme.Shop">
         <item name="android:background">@color/white</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/toolbar_height</item>
@@ -36,7 +36,7 @@
         <attr name="text" format="string" />
     </declare-styleable>
 
-    <style name="Theme.Ozon.ProgressButton">
+    <style name="Theme.Shop.ProgressButton">
 
     </style>
 </resources>

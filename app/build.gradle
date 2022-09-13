@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "ru.ozon.app"
+        applicationId "ru.blur.app"
         minSdk 28
         targetSdk 32
         versionCode 1

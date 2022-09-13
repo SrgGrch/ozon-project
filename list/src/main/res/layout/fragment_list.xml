@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:id="@+id/toolbar"
-        style="@style/Theme.Ozon.Toolbar"
+        style="@style/Theme.Shop.Toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

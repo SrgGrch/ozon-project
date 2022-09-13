@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "Ozon"
+rootProject.name = "Shop"
 
 include ':app'
 
@@ -22,5 +22,7 @@ include ':core-ui'
 include ':utils'
 
 include ':list'
+include ':list-api'
 include ':details'
+include ':details-api'
 include ':add-product'

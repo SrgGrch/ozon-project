@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/graph_main"
-        tools:context="ru.ozon.app.MainActivity" />
+        tools:context="tech.blur.app.MainActivity" />
 
     <TextView
         android:id="@+id/noInternet"

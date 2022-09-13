@@ -7,7 +7,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        style="@style/Theme.Ozon.Toolbar"
+        style="@style/Theme.Shop.Toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,7 +18,7 @@
 
             <ImageButton
                 android:id="@+id/back"
-                style="@style/Theme.Ozon.BackButton"
+                style="@style/Theme.Shop.BackButton"
                 android:layout_width="@dimen/toolbar_height"
                 android:layout_height="@dimen/toolbar_height"
                 android:layout_gravity="start"
